@@ -2,6 +2,7 @@ import React, { Component } from 'react';
 import './App.css';
 import { FormGroup, FormControl, InputGroup, Glyphicon } from 'react-bootstrap';
 // import axios from 'axios';
+import Profile from './Profile';
 
 class App extends Component {
 
@@ -19,9 +20,10 @@ class App extends Component {
         // const FETCH_URL = BASE_URL + 'q=' + this.state.query + '&type=artist&limit=1';
         const FETCH_URL = `${BASE_URL}q=${this.state.query}&type=artist&limit=1`;
 
-        var accessToken = 'BQA5Q-SAJvUmiuxaqC2kh3ftzMBew7SRnw_DTPlzo1c6WI65fhCxI_d07hILUp1ZeUW7xIb_knT10AD6Fu-7Wk30Ydhs1UJjzU6zUHh_UnIq9XuZoClJA8JXbbG2xJxr67gAS5KT-tOLb4_utCOLNgJi__9B_A&refresh_token=AQC1RadQ1oinrW91TCotd6Oaz6CT1c7E46XtNIs8FI97oE-gn0SKe7Dhecgti_sBY5NsDmeYNxfJqNBrsJ0WvxqXLoaLYu1IYxeNDZ8hPfqHo3RSsE_yELStmhLhZEA1LL4'
-
+        // Need to change/get the latest token each time with this app.
+        var accessToken = 'BQCmT0qKJ41ibCqVUsnqTjenCdaQrxdMb-W_2k-6efMcwfsyKllUWz7bhdSSVMkkS4ne4gBC0CNiDsB2R9GD3NFTTnLz07a_Q-dRa1_8BN6bmrFH-Q59fGKLfUoGCXHC5K1viBF_YFGBBusH5oQujg4_qcNx_A&refresh_token=AQBHT1CJkykjB7spNrvjLSNQdO1oSC1er4uhm2-1p261ehnKzqXjAhy3AOyGgnI4fP781fUqSrUQpHOGVsMxHymOJkfDyHPr1OEERiS8cInt6svGpvfvMhDlCs7-YIjVpdk'
         console.log('FETCH_URL', FETCH_URL);
+
         var myOptions = {
             method: 'GET',
             headers: {
@@ -33,6 +35,7 @@ class App extends Component {
 
         fetch(FETCH_URL, myOptions)
             .then(response => response.json())
+
             .then(json => {
                 const artist = json.artists.items[0];
                 this.setState({ artist });
@@ -73,11 +76,9 @@ class App extends Component {
                         </InputGroup.Addon>
                     </InputGroup>
                 </FormGroup>
-                <div className="Profile">
-                    <div>Artist Picture</div>
-
-                    <div>Artist Name</div>
-                </div>
+                <Profile
+                    artist={this.state.artist}
+                />
                 <div className="Gallery">
                     Gallery
                 </div>
