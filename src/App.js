@@ -21,7 +21,7 @@ class App extends Component {
         const FETCH_URL = `${BASE_URL}q=${this.state.query}&type=artist&limit=1`;
 
         // Need to change/get the latest token each time with this app.
-        var accessToken = 'BQCmT0qKJ41ibCqVUsnqTjenCdaQrxdMb-W_2k-6efMcwfsyKllUWz7bhdSSVMkkS4ne4gBC0CNiDsB2R9GD3NFTTnLz07a_Q-dRa1_8BN6bmrFH-Q59fGKLfUoGCXHC5K1viBF_YFGBBusH5oQujg4_qcNx_A&refresh_token=AQBHT1CJkykjB7spNrvjLSNQdO1oSC1er4uhm2-1p261ehnKzqXjAhy3AOyGgnI4fP781fUqSrUQpHOGVsMxHymOJkfDyHPr1OEERiS8cInt6svGpvfvMhDlCs7-YIjVpdk'
+        var accessToken = 'BQA6ehYDwpOWdyaQLo8Ep14Ep4RUY_T2WB9MoUtrbOV7bLRgX4aCmMTmVmu5okhKYwU1-Qhu07ayWPcdkqQhXn1_x9JoGl-LC52ZQ4rXkA6hSQDABDGswSNwP__t6PkWEoJYCsXw0D0JJE1X8Pq1B5Kk_rE1Ug&refresh_token=AQCSCiO41RuRCoAmluO-PdJqWegXp00RGww8TGy8FhJ2eTPafWhUakOLQWztcQn8ghSF-k-HBzO71UefPl56BzP3wqgGzktF_RBEvQt_cm3U4GFQcix02Dp_h7fLgWign5s'
         console.log('FETCH_URL', FETCH_URL);
 
         var myOptions = {
