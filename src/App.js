@@ -10,7 +10,8 @@ class App extends Component {
         super(props);
         this.state = {
             query: "", // my query
-            artist: null  // my response.
+            artist: null, // my response.
+            tracks: []
         }
     }
 
@@ -18,8 +19,8 @@ class App extends Component {
         console.log('this.state', this.state);
         const BASE_URL = 'https://api.spotify.com/v1/search?';
         // const FETCH_URL = BASE_URL + 'q=' + this.state.query + '&type=artist&limit=1';
-        const FETCH_URL = `${BASE_URL}q=${this.state.query}&type=artist&limit=1`;
-
+        let FETCH_URL = `${BASE_URL}q=${this.state.query}&type=artist&limit=1`;
+        const ALBUM_URL = 'https://api.spotify.com/v1/artists/'
         // Need to change/get the latest token each time with this app.
         var accessToken = 'BQCen-dICNO8JFCRUOWUesFnO7EippJaPHwYyYkriT_18KG8YIFrbemma7yknhN8BqZKSLqzfwfT1h-RmDgfFKscdfT0dJNJNZGB2Ohj63QnPTuLE-Lfb9v17qw4VDdtgPrgf-bPQf3xeBU8HgD3q0gjHFitGA&refresh_token=AQCxxznQEAc-OlmaS3d0nMQWxoVR_51NNtydvlC_dBtyg73f9UbVg1HuLFxRoIEYZdE3VobYPdDgL1sTxuh9Xwn-1XoVMbtbJsHBhkC_ySE9jIk-5yGoHor9OfopcOKP2Go'
         console.log('FETCH_URL', FETCH_URL);
@@ -39,7 +40,19 @@ class App extends Component {
             .then(json => {
                 const artist = json.artists.items[0];
                 this.setState({ artist });
-            })
+
+                FETCH_URL = `${ALBUM_URL}${artist.id}/top-tracks?country=US&`
+                fetch(FETCH_URL, myOptions, {
+                    method: 'GET'
+                })
+                    .then(response => response.json())
+                    .then(json => {
+                        console.log('artist\'s top tracks:', json);
+                        // const tracks = json.tracks;
+                        const { tracks } = json;
+                        this.setState({ tracks });
+                    })
+            });
 
     }
 
