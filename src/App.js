@@ -21,7 +21,7 @@ class App extends Component {
         const FETCH_URL = `${BASE_URL}q=${this.state.query}&type=artist&limit=1`;
 
         // Need to change/get the latest token each time with this app.
-        var accessToken = 'BQA6ehYDwpOWdyaQLo8Ep14Ep4RUY_T2WB9MoUtrbOV7bLRgX4aCmMTmVmu5okhKYwU1-Qhu07ayWPcdkqQhXn1_x9JoGl-LC52ZQ4rXkA6hSQDABDGswSNwP__t6PkWEoJYCsXw0D0JJE1X8Pq1B5Kk_rE1Ug&refresh_token=AQCSCiO41RuRCoAmluO-PdJqWegXp00RGww8TGy8FhJ2eTPafWhUakOLQWztcQn8ghSF-k-HBzO71UefPl56BzP3wqgGzktF_RBEvQt_cm3U4GFQcix02Dp_h7fLgWign5s'
+        var accessToken = 'BQCen-dICNO8JFCRUOWUesFnO7EippJaPHwYyYkriT_18KG8YIFrbemma7yknhN8BqZKSLqzfwfT1h-RmDgfFKscdfT0dJNJNZGB2Ohj63QnPTuLE-Lfb9v17qw4VDdtgPrgf-bPQf3xeBU8HgD3q0gjHFitGA&refresh_token=AQCxxznQEAc-OlmaS3d0nMQWxoVR_51NNtydvlC_dBtyg73f9UbVg1HuLFxRoIEYZdE3VobYPdDgL1sTxuh9Xwn-1XoVMbtbJsHBhkC_ySE9jIk-5yGoHor9OfopcOKP2Go'
         console.log('FETCH_URL', FETCH_URL);
 
         var myOptions = {
@@ -76,12 +76,21 @@ class App extends Component {
                         </InputGroup.Addon>
                     </InputGroup>
                 </FormGroup>
-                <Profile
-                    artist={this.state.artist}
-                />
-                <div className="Gallery">
-                    Gallery
-                </div>
+                {
+                    this.state.artist !== null
+                        ?
+                        <div>
+                            <Profile
+                                artist={this.state.artist}
+                            />
+                            <div className="Gallery">
+                                Gallery
+                        </div>
+
+                        </div>
+                        : <div></div>
+                }
+
             </div>
         )
     }
