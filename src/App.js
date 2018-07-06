@@ -3,6 +3,7 @@ import './App.css';
 import { FormGroup, FormControl, InputGroup, Glyphicon } from 'react-bootstrap';
 // import axios from 'axios';
 import Profile from './Profile';
+import Gallery from './Gallery';
 
 class App extends Component {
 
@@ -22,7 +23,7 @@ class App extends Component {
         let FETCH_URL = `${BASE_URL}q=${this.state.query}&type=artist&limit=1`;
         const ALBUM_URL = 'https://api.spotify.com/v1/artists/'
         // Need to change/get the latest token each time with this app.
-        var accessToken = 'BQCen-dICNO8JFCRUOWUesFnO7EippJaPHwYyYkriT_18KG8YIFrbemma7yknhN8BqZKSLqzfwfT1h-RmDgfFKscdfT0dJNJNZGB2Ohj63QnPTuLE-Lfb9v17qw4VDdtgPrgf-bPQf3xeBU8HgD3q0gjHFitGA&refresh_token=AQCxxznQEAc-OlmaS3d0nMQWxoVR_51NNtydvlC_dBtyg73f9UbVg1HuLFxRoIEYZdE3VobYPdDgL1sTxuh9Xwn-1XoVMbtbJsHBhkC_ySE9jIk-5yGoHor9OfopcOKP2Go'
+        var accessToken = 'BQDm0W6Qh-GYjHoTfrqgOvW7tyA46hh_H8i5l02rohzNE7aE61_Hq6v1oxz4hGmAsR8_EEZVJm-Pa7el0IJgrVhLRlXxW-miM-WjbQ97_r22HVRPL9uAlOz7hE3QYVOHWu8PO6uhP1p8XHFtCWvMjoTEcbRg5w&refresh_token=AQAKLab0jWC35QZ9uyzm89_TTawlRxp2WtdQ_uOQIPYtEB2v9yPRC__qSyIjhKVoJrqxKTYDL_NYGNipKF2JEwZqDWHWYXsod5B_vdf-XBgDzeZoO8hTeYpMmWmZvji2FGI'
         console.log('FETCH_URL', FETCH_URL);
 
         var myOptions = {
@@ -96,9 +97,9 @@ class App extends Component {
                             <Profile
                                 artist={this.state.artist}
                             />
-                            <div className="Gallery">
-                                Gallery
-                        </div>
+                            <Gallery
+                                tracks={this.state.tracks}
+                            />
 
                         </div>
                         : <div></div>
