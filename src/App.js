@@ -23,7 +23,7 @@ class App extends Component {
         let FETCH_URL = `${BASE_URL}q=${this.state.query}&type=artist&limit=1`;
         const ALBUM_URL = 'https://api.spotify.com/v1/artists/'
         // Need to change/get the latest token each time with this app.
-        var accessToken = 'BQDm0W6Qh-GYjHoTfrqgOvW7tyA46hh_H8i5l02rohzNE7aE61_Hq6v1oxz4hGmAsR8_EEZVJm-Pa7el0IJgrVhLRlXxW-miM-WjbQ97_r22HVRPL9uAlOz7hE3QYVOHWu8PO6uhP1p8XHFtCWvMjoTEcbRg5w&refresh_token=AQAKLab0jWC35QZ9uyzm89_TTawlRxp2WtdQ_uOQIPYtEB2v9yPRC__qSyIjhKVoJrqxKTYDL_NYGNipKF2JEwZqDWHWYXsod5B_vdf-XBgDzeZoO8hTeYpMmWmZvji2FGI'
+        var accessToken = 'BQAynINmoc2-JWyro1ypyiuV-6FyTLIPRiEcALl_323bMHLciGvVCtF3Sq2UbAfGQb-vKJKREESQ_YSzw2jlafA5IIDRCrxEjcZU4U4ihQoMGjDeaSo98GkZZ-p8MX7Uqpvazow6Uc1YtRH83SmAUzOfieSzAA&refresh_token=AQBwCpIp3oxRIf8_sf3ca5eZ07uFKPNY3EqdXBvJtsI7cZMpGHarfrP7nYqArAZWMp7e4aCC0KiXeefXqW85L6oa3VjVLGQXok7TEmdHW88Mj5GkDisF0YejET8ZDU-QzmQ'
         console.log('FETCH_URL', FETCH_URL);
 
         var myOptions = {
